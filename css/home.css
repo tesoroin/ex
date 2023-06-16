@@ -1,0 +1,39 @@
+/* banner */
+#banner{
+  min-width:1300px;
+  padding:80px 0;
+  text-align:center;
+  background-color: #f6f6f6;
+  color:#191919;
+}
+#banner > h1{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+/* work */
+#work{
+  display:flex;
+  flex-wrap:wrap;
+}
+#work > .box{
+  width:325px;
+  height:280px;
+  position:relative;  /*pos:abs를 적용한 자식요소의 기준이 됨*/
+  overflow:hidden;  /*넘어가는 콘텐츠를 가려줌*/
+}
+#work > .box::after{  /*가상요소*/
+  content:"";
+  position:absolute;
+  top:0; left:0; bottom:0; right:0;
+  cursor:pointer;
+  /* ../ = 상위폴더 */
+  background: rgba(16,201,195,0.6) url(../img/eye.png) no-repeat center;
+  transition:all 0.3;  /*변환효과*/
+  opacity:0;
+  /* transform:scale(0) rotate(-720deg); */
+}
+#work > .box:hover::after{  /*.box에 마우스를 올리면 자손요소인 가상요소가 화면에 나타남*/
+  opacity:1;
+  /* transform:scale(0) rotate(0deg); */
+}
